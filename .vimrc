@@ -1,15 +1,31 @@
 syntax enable
+
 " set color theme
+"let g:solarized_termcolors=256
+"colorscheme blackboard
+"colorscheme busybee
+set background=dark
+colorscheme solarized
+"colorscheme molokai
+"let g:molokai_original = 1
+"let g:rehash256 = 1
 
-set nocompatible               " be iMproved
-filetype off                   " required!
+filetype plugin indent on
 
+"set nocompatible               " be iMproved
+filetype on  " required!
+set cc=80
+"hi ColorColumn ctermbg=lightgrey guibg=lightgrey
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
+Bundle 'elzr/vim-json'
+Bundle 'bling/vim-airline'
+Bundle 'SirVer/ultisnips'
+Bundle 'tpope/vim-surround'
 Bundle 'rails.vim'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'mileszs/ack.vim'
@@ -39,16 +55,8 @@ Bundle 'sudo.vim'
 Bundle 'xml.vim'
 Bundle 'ZenCoding.vim'
 
-"let g:solarized_termcolors=256
-"colorscheme blackboard
-"colorscheme busybee
-colorscheme solarized 
-set background=dark
-"colorscheme molokai 
-"let g:molokai_original = 1
-"let g:rehash256 = 1
+"Bundle  'tomasr/molokai'
 
-filetype plugin indent on
 
 "auto completed
 "RUBY
@@ -83,10 +91,10 @@ set ic
 
 " 使用空格代替tab
 set expandtab
-" tab宽度  
-set tabstop=2  
-set cindent shiftwidth=2  
-set autoindent shiftwidth=2 
+" tab宽度
+set tabstop=2
+set cindent shiftwidth=2
+set autoindent shiftwidth=2
 
 
 " set 折叠
@@ -108,7 +116,7 @@ map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
 "  映射NERDTree插件
-:map <F8> :NERDTree<CR>  
+:map <F8> :NERDTree<CR>
 "let loaded_nerd_tree = 1
 let NERDTreeQuitOnOpen = 1
 let NERDChristmasTree=1
@@ -120,8 +128,8 @@ map <c-t> :FufCoverageFile!<CR>
 "switch window
 :map <leader>w <C-W>w
 
-" 把 CTRL-S 映射为 保存,因为这个操作做得太习惯了  
-imap <C-S> <C-C>:w<CR>  
+" 把 CTRL-S 映射为 保存,因为这个操作做得太习惯了
+imap <C-S> <C-C>:w<CR>
 
 "set zen coding
  let g:user_zen_settings = {
@@ -216,14 +224,13 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 " code search
 let g:ackprg = 'ag --nogroup --nocolor --column'
-
+let g:airline_powerline_fonts = 1
 "set powerline
-set laststatus=2 
-"set guifont=Powerline
-"set font=Source\ Code\ Pro\:h15
-set nocompatible
+set laststatus=2
+set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline:h14
+"set nocompatible
 set t_Co=256
-let g:Powerline_cache_enabled = 1
+"let g:Powerline_cache_enabled = 1
 
 "minitest
 set completefunc=syntaxcomplete#Complete
